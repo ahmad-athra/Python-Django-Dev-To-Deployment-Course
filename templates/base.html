@@ -1,11 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'btre/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'btre/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'btre/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'btre/css/lightbox.min.css' %}">
     <title>BT Real Estate</title>
 </head>
 <body>
+    {# Injecting the partial #}
+    {% include "partials/_topbar.html" %}
+    {% include "partials/_navbar.html" %}
+
+
+
+
     {% block content %} {% endblock %} <!-- layout, that extends other templates  -->
+
+    {# Injecting the partial #}
+    {% include "partials/_footer.html" %}
+
+  <script src="{% static 'btre/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'btre/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'btre/js/main.js' %}"></script>
+  <script src="{% static 'btre/js/lightbox.min.js' %}"></script>
 </body>
 </html>
