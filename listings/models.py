@@ -9,7 +9,7 @@ from realtors.models import Realtor
 
 # Create your models here.
 class Listing(models.Model):
-
+    
         # id = models.CharField() P
         realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
         title = models.CharField(max_length=200)
