@@ -12,7 +12,12 @@ def index(request):
     }
     return render(request, 'listings/listings.html', context)
 
-def listing(request ): #,listing_id):
-    return render(request, 'listings/listing.html')
+def listing(request, listing_id):
+    listing = Listing.objects.get(pk=listing_id)
+    print(listing_id)
+    context = {'id': listing_id}
+    print(listing)
+    
+    return render(request, 'listings/listing.html', context)
 def search(request):
     return render(request, 'listings/search.html')
