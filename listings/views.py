@@ -20,10 +20,11 @@ def index(request: HttpRequest):
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
-    listing = Listing.objects.get(pk=listing_id)
+    listing = Listing.objects.filter(pk=listing_id)
+
     print(listing_id)
-    context = {'id': listing_id}
     print(listing)
+    context = {'listing': listing}
     
     return render(request, 'listings/listing.html', context)
 def search(request):
