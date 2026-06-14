@@ -2,6 +2,8 @@ from django.http import HttpRequest
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Listing
+from realtors.models import Realtor
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def index(request: HttpRequest):
@@ -20,10 +22,10 @@ def index(request: HttpRequest):
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
-    listing = Listing.objects.filter(pk=listing_id)
+    # listing = Listing.objects.get(pk=listing_id)
+    # context = {'listing': listing}
 
-    print(listing_id)
-    print(listing)
+    listing = get_object_or_404(Listing, pk=listing_id)
     context = {'listing': listing}
     
     return render(request, 'listings/listing.html', context)
